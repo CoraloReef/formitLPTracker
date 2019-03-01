@@ -10,16 +10,15 @@ $api = new LPTracker([
 
 $project = 11111; // Project Id
 
-if (isset($_POST['name']))
-{
+if (isset($_POST['name'])) {
     $name = $_POST["name"];
 
     $phone = $_POST["phone"];
     $phone = str_replace(array(' ','-','(',')','+'), '', strip_tags($phone));
 
-    $customField1 = $_POST["customField1"]; // field from form
-    $customField2 = $_POST["customField2"]; // field from form
-    $referer = $_POST["referer"]; // information about referer from form
+    $customField1 = $_POST["customField1"]; // field from
+    $customField2 = $_POST["customField2"]; // field from
+    $referer = $_POST["referer"]; // information about referer from
 
     $details = [
         [
@@ -31,7 +30,7 @@ if (isset($_POST['name']))
         'name'       => $name
     ];
 
-    //Создание контакта
+    // Create contact
     $contact = $api->createContact($project, $details, $contactData);
 
     $leadData = [
@@ -64,6 +63,6 @@ if (isset($_POST['name']))
 
     return true;
 }
-else{
-    return false;
-}
+
+return false;
+
